@@ -1,0 +1,27 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+:root {
+  color-scheme: light;
+  --background: #f8fafc;
+  --foreground: #0b1220;
+}
+
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+body { margin: 0; background: #020617; color: var(--foreground); font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+button { cursor: pointer; }
+button:focus-visible { outline: 3px solid #38bdf8; outline-offset: 3px; }
+.presentation-mode { padding: 0 !important; }
+.presentation-mode .presentation-frame { height: 100vh; max-height: none; max-width: none; border-radius: 0; }
+.presentation-mode .controls { opacity: 0; transition: opacity .2s ease; }
+.presentation-mode .presentation-frame:hover .controls { opacity: 1; }
+@media print {
+  body { background: white; }
+  .presentation-frame { height: 100vh !important; max-height: none !important; box-shadow: none !important; }
+  .controls, .notes-orateur { display: none !important; }
+}
+@media (max-width: 800px) {
+  .presentation-frame { overflow: auto; }
+  .presentation-frame section { min-height: 100%; }
+}
